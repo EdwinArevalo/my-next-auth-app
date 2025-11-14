@@ -59,7 +59,7 @@ export default async function RootLayout({
                   <LogoutButton />
                 </li>
               )}
-              {session?.user && (
+              {session?.user?.image && (
                 <li>
                   <Image
                     height={100}

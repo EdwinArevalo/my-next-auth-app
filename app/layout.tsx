@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import Provider from "./components/SessionProvider";
 import Link from "next/link";
-import LogoutButton from "./components/LogoutButton";
+import LogoutButton from "../components/LogoutButton";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 import Image from "next/image";
+import Provider from "@/components/SessionProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -49,10 +49,10 @@ export default async function RootLayout({
               </li>
               {session?.user && (
                 <li>
-                <Link href="/profile" className="hover:text-gray-600">
-                  Profile
-                </Link>
-              </li>
+                  <Link href="/profile" className="hover:text-gray-600">
+                    Profile
+                  </Link>
+                </li>
               )}
               {session?.user && (
                 <li>
@@ -60,17 +60,16 @@ export default async function RootLayout({
                 </li>
               )}
               {session?.user && (
-                <li >
+                <li>
                   <Image
                     height={100}
                     width={100}
-                    src={session?.user?.image} 
+                    src={session?.user?.image}
                     alt="Profile"
                     className="w-10 h-10 rounded-full"
                   />
                 </li>
               )}
-              
             </ul>
           </div>
         </nav>

@@ -6,12 +6,6 @@ import Image from 'next/image';
 export default async function ProfilePage() {
   const session = await getServerSession(authOptions);
 
-  // if (!session) {
-  //   redirect('/signIn');
-  // }
-
-  console.log(session);
-
   return (
     <div className="min-h-screen bg-gray-100 p-8">
       <div className="max-w-4xl mx-auto">
